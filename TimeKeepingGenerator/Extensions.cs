@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TimeKeepingGenerator
 {
@@ -10,15 +7,33 @@ namespace TimeKeepingGenerator
     {
         public static string GetExcelLetter(this int number, int prevalue = 0)
         {
-            return Char.ConvertFromUtf32(number + 64 + prevalue);
+            if (number <= 13)
+            {
+                return Char.ConvertFromUtf32(number + 64 + prevalue);
+            }
+            var div = number / 13;
+            var mod = number % 13;
+            return div.GetExcelLetter(prevalue) + mod.GetExcelLetter(prevalue);
         }
-        public static string GetExcelFirstLetterForClient(this int number)
+        public static string GetExcelFirstLetterForClient(this int number, int prevalue = 0)
         {
-            return Char.ConvertFromUtf32(number * 2 + 64);
+            if (number <= 13)
+            {
+                return Char.ConvertFromUtf32(number * 2 + 64 + prevalue);
+            }
+            var div = number / 13;
+            var mod = number % 13;
+            return div.GetExcelLetter() + mod.GetExcelFirstLetterForClient(1);
         }
-        public static string GetExcelSecondLetterForClient(this int number)
+        public static string GetExcelSecondLetterForClient(this int number, int prevalue = 0)
         {
-            return Char.ConvertFromUtf32(number * 2 + 64 + 1);
+            if (number < 13)
+            {
+                return Char.ConvertFromUtf32(number * 2 + 64 + 1 + prevalue);
+            }
+            var div = number / 13;
+            var mod = number % 13;
+            return div.GetExcelLetter() + mod.GetExcelSecondLetterForClient(1);
         }
         public static DateTime GetStartWorkingDateHour(this DateTime dateTime)
         {

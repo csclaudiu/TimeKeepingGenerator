@@ -15,6 +15,12 @@ namespace TimeKeepingGenerator
 
         static void Main(string[] args)
         {
+            for (var i = 1; i <= 330; i++)
+            {
+                Console.WriteLine($"{i}, {i.GetExcelFirstLetterForClient()}");
+                Console.WriteLine($"{i}, {i.GetExcelSecondLetterForClient()}");
+            }
+
             var employees = new List<string>();
             DateTime fromDate = new DateTime();
             DateTime toDate = new DateTime();
@@ -51,7 +57,7 @@ namespace TimeKeepingGenerator
                 Trace.TraceError($"Initial parameters in incorrect format. {ex}");
                 throw;
             }
-            var holidaysExplorer = new Holidays(fromDate, toDate);
+            var holidaysExplorer = new HolidaysExplorer(fromDate, toDate);
             var holidays = holidaysExplorer.Get();
             var timeGenerator = new TimeGenerator(employees, fromDate, toDate, holidays);
             var result = timeGenerator.Generate();

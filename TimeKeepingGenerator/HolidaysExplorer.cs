@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ using TimeKeepingGenerator.ExternalDto;
 
 namespace TimeKeepingGenerator
 {
-    public class Holidays
+    public class HolidaysExplorer
     {
         private DateTime _startDate;
         private DateTime _endDate;
@@ -18,7 +19,7 @@ namespace TimeKeepingGenerator
         //private readonly string _key = "3113fe1d-11b4-4c0a-ab75-da25e2fe31a7"; // prod
         private readonly string _country = "RO";
         private readonly string _api = "http://publicholiday.azurewebsites.net/api/v1/";
-        public Holidays(DateTime startDate, DateTime endDate)
+        public HolidaysExplorer(DateTime startDate, DateTime endDate)
         {
             _startDate = startDate;
             _endDate = endDate;
@@ -46,24 +47,49 @@ namespace TimeKeepingGenerator
 
         private List<DateTime> ReadHolidaysFromFile(int year)
         {
-
-            List<Holiday> response = null;
-            using (StreamReader file = File.OpenText($"{year}.txt"))
+            try
             {
-                JsonSerializer serializer = new JsonSerializer();
-                response = (List<Holiday>)serializer.Deserialize(file, typeof(List<Holiday>));
+                List<Holiday> response = null;
+                using (StreamReader file = File.OpenText($"{year}.txt"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    response = (List<Holiday>)serializer.Deserialize(file, typeof(List<Holiday>));
+                }
+                return response.Select(h => h.date).ToList();
             }
-            return response.Select(h=>h.date).ToList();
+            catch(Exception ex)
+            {
+                Trace.TraceError($"An error has occured while trying to read json file for year {year}. {ex}");
+                throw;
+            }
         }
 
         private async Task GetHolidaysFromExternal(int year)
         {
-            var jsonHolidays = await $"{_api}/get/{_country}/{year}".GetStreamAsync();
+            Stream jsonHolidays;
 
-            using(var fileStream = File.Create($"{year}.txt"))
+            try
             {
-                jsonHolidays.CopyTo(fileStream);
+                jsonHolidays = await $"{_api}/get/{_country}/{year}".GetStreamAsync();
             }
+            catch(Exception ex)
+            {
+                Trace.TraceError($"An error has occured durring request of holidays for year {year}. {ex}");
+                throw;
+            }
+            try
+            {
+                using (var fileStream = File.Create($"{year}.txt"))
+                {
+                    jsonHolidays.CopyTo(fileStream);
+                }
+            }
+            catch(Exception ex)
+            {
+                Trace.TraceError($"An error has occured while saving the json file of holidays for year {year}. {ex}");
+                throw;
+            }
+            
         }
     }
 }

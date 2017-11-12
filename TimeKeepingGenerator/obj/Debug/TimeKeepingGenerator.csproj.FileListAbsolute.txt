@@ -12,3 +12,17 @@ C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\Time
 C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.xml
 C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.Http.xml
 C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Newtonsoft.Json.xml
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\TimeKeepingGenerator.exe.config
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\obj\Debug\TimeKeepingGenerator.exe
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\obj\Debug\TimeKeepingGenerator.pdb
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\TimeKeepingGenerator.exe
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\TimeKeepingGenerator.pdb
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\EPPlus.dll
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.dll
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.Http.dll
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Newtonsoft.Json.dll
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\EPPlus.xml
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.xml
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.Http.xml
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Newtonsoft.Json.xml
+C:\GitRepositories\TimeKeepingGenerator\TimeKeepingGenerator\obj\Debug\TimeKeepingGenerator.csprojResolveAssemblyReference.cache
