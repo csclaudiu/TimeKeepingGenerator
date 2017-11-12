@@ -31,12 +31,12 @@ namespace TimeKeepingGenerator
             return dateTime.AddHours(9);
         }
 
-        public static DateTime GetNextWorkingDay(this DateTime nextWorkingDay, List<DateTime> holidays)
+        public static DateTime GetNextWorkingDay(this DateTime nextWorkingDay)
         {
             do
             {
                 nextWorkingDay = nextWorkingDay.AddDays(1);
-            } while (nextWorkingDay.DayOfWeek == DayOfWeek.Saturday || nextWorkingDay.DayOfWeek == DayOfWeek.Sunday || nextWorkingDay.IsHoliday(holidays));
+            } while (nextWorkingDay.DayOfWeek == DayOfWeek.Saturday || nextWorkingDay.DayOfWeek == DayOfWeek.Sunday);
 
             return nextWorkingDay;
         }

@@ -8,10 +8,15 @@ namespace TimeKeepingGenerator.DomainModels
 {
     public class DayEntry
     {
-        public DayEntry(DateTime timeIn, DateTime timeOut)
+        public DayEntry(DateTime timeIn, DateTime timeOut) : this(timeIn, timeOut, false)
+        {
+
+        }
+        public DayEntry(DateTime timeIn, DateTime timeOut, bool isHoliday)
         {
             In = timeIn;
             Out = timeOut;
+            IsHoliday = isHoliday;
         }
         public DayEntry()
         {
@@ -19,5 +24,6 @@ namespace TimeKeepingGenerator.DomainModels
         }
         public DateTime In { get; set; }
         public DateTime Out { get; set; }
+        public bool IsHoliday { get; set; }
     }
 }

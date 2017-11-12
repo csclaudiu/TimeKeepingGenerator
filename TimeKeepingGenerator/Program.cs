@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using TimeKeepingGenerator.DomainModels;
@@ -87,11 +88,20 @@ namespace TimeKeepingGenerator
                                 worksheet.Cells[$"A{currentRowNumber}"].Style.Numberformat.Format = "dd/mm/yyyy";
                                 worksheet.Cells[$"A{currentRowNumber}"].Style.Font.Bold = true;
                                 worksheet.Cells[$"A{currentRowNumber}"].Value = en.In;
+                                if (en.IsHoliday)
+                                {
+                                    var colFromHex = ColorTranslator.FromHtml("#FF0000");
+                                    worksheet.Cells[$"A{currentRowNumber}"].Style.Font.Color.SetColor(colFromHex);
+                                }
                             }
-                            worksheet.Cells[$"{currentEmployee.GetExcelFirstLetterForClient()}{currentRowNumber}"].Style.Numberformat.Format = "hh:mm:ss";
-                            worksheet.Cells[$"{currentEmployee.GetExcelFirstLetterForClient()}{currentRowNumber}"].Value = en.In;
-                            worksheet.Cells[$"{currentEmployee.GetExcelSecondLetterForClient()}{currentRowNumber}"].Style.Numberformat.Format = "hh:mm:ss";
-                            worksheet.Cells[$"{currentEmployee.GetExcelSecondLetterForClient()}{currentRowNumber}"].Value = en.Out;
+                            if (!en.IsHoliday)
+                            {
+                                worksheet.Cells[$"{currentEmployee.GetExcelFirstLetterForClient()}{currentRowNumber}"].Style.Numberformat.Format = "hh:mm:ss";
+                                worksheet.Cells[$"{currentEmployee.GetExcelFirstLetterForClient()}{currentRowNumber}"].Value = en.In;
+                                worksheet.Cells[$"{currentEmployee.GetExcelSecondLetterForClient()}{currentRowNumber}"].Style.Numberformat.Format = "hh:mm:ss";
+                                worksheet.Cells[$"{currentEmployee.GetExcelSecondLetterForClient()}{currentRowNumber}"].Value = en.Out;
+                            }
+                            
                             ++currentRowNumber;
                         });
 

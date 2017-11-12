@@ -43,7 +43,13 @@ namespace TimeKeepingGenerator
 
             while (workingDay < _to)
             {
-                workingDay = workingDay.GetNextWorkingDay(_holidays);
+                workingDay = workingDay.GetNextWorkingDay();
+                if(workingDay.IsHoliday(_holidays))
+                {
+                    dayEntries.Add(new DayEntry(workingDay, workingDay, true));
+                    continue;
+                }
+
                 var start = Randomize(workingDay.GetStartWorkingDateHour(), TimeSpan.FromMinutes(15));
                 var end = Randomize(start.GetEndWorkingDateHour(), TimeSpan.FromMinutes(7));
 
