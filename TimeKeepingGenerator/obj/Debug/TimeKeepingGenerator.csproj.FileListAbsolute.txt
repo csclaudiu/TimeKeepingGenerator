@@ -1,0 +1,14 @@
+c:\users\claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\TimeKeepingGenerator.exe.config
+c:\users\claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\TimeKeepingGenerator.exe
+c:\users\claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\TimeKeepingGenerator.pdb
+c:\users\claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\obj\Debug\TimeKeepingGenerator.csprojResolveAssemblyReference.cache
+c:\users\claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\obj\Debug\TimeKeepingGenerator.exe
+c:\users\claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\obj\Debug\TimeKeepingGenerator.pdb
+C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\EPPlus.dll
+C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\EPPlus.xml
+C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.dll
+C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.Http.dll
+C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.xml
+C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Flurl.Http.xml
+C:\Users\Claudiu\documents\visual studio 2015\Projects\TimeKeepingGenerator\TimeKeepingGenerator\bin\Debug\Newtonsoft.Json.xml
