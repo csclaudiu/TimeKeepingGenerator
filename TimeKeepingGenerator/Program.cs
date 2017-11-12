@@ -15,11 +15,11 @@ namespace TimeKeepingGenerator
 
         static void Main(string[] args)
         {
-            for (var i = 1; i <= 330; i++)
-            {
-                Console.WriteLine($"{i}, {i.GetExcelFirstLetterForClient()}");
-                Console.WriteLine($"{i}, {i.GetExcelSecondLetterForClient()}");
-            }
+            //for (var i = 1; i <= 330; i++)
+            //{
+            //    Console.WriteLine($"{i}, {i.GetExcelFirstLetterForClient()}");
+            //    Console.WriteLine($"{i}, {i.GetExcelSecondLetterForClient()}");
+            //}
 
             var employees = new List<string>();
             DateTime fromDate = new DateTime();

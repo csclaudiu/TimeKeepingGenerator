@@ -5,35 +5,30 @@ namespace TimeKeepingGenerator
 {
     public static class Extensions
     {
-        public static string GetExcelLetter(this int number, int prevalue = 0)
+        public static string GetExcelColumnName(this int columnNumber)
         {
-            if (number <= 13)
+            int dividend = columnNumber;
+            string columnName = String.Empty;
+            int modulo;
+
+            while (dividend > 0)
             {
-                return Char.ConvertFromUtf32(number + 64 + prevalue);
+                modulo = (dividend - 1) % 26;
+                columnName = Convert.ToChar(65 + modulo).ToString() + columnName;
+                dividend = (int)((dividend - modulo) / 26);
             }
-            var div = number / 13;
-            var mod = number % 13;
-            return div.GetExcelLetter(prevalue) + mod.GetExcelLetter(prevalue);
+
+            return columnName;
         }
-        public static string GetExcelFirstLetterForClient(this int number, int prevalue = 0)
+        public static string GetExcelFirstLetterForClient(this int number)
         {
-            if (number <= 13)
-            {
-                return Char.ConvertFromUtf32(number * 2 + 64 + prevalue);
-            }
-            var div = number / 13;
-            var mod = number % 13;
-            return div.GetExcelLetter() + mod.GetExcelFirstLetterForClient(1);
+            var columnNumber = number * 2;
+            return columnNumber.GetExcelColumnName();
         }
-        public static string GetExcelSecondLetterForClient(this int number, int prevalue = 0)
+        public static string GetExcelSecondLetterForClient(this int number)
         {
-            if (number < 13)
-            {
-                return Char.ConvertFromUtf32(number * 2 + 64 + 1 + prevalue);
-            }
-            var div = number / 13;
-            var mod = number % 13;
-            return div.GetExcelLetter() + mod.GetExcelSecondLetterForClient(1);
+            var columnNumber = number * 2 + 1;
+            return columnNumber.GetExcelColumnName();
         }
         public static DateTime GetStartWorkingDateHour(this DateTime dateTime)
         {
